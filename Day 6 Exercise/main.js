@@ -89,78 +89,80 @@ for (dex = 1; dex <= 10; dex++) {
     console.log(`${dex}   ${dex ** 2}   ${dex ** 3}`)
 }
 
-// for (even = 0; even <= 100; even++) {
-//     if (even % 2 == 0)
-//         console.log({ even })
-// }
+//7. Use for loop to iterate from 0 to 100 and print only even numbers
 
-// for (odd = 0; odd <= 100; odd++) {
-//     if (odd % 2 !== 0)
-//         console.log({ odd })
-// }
+for (even = 0; even <= 100; even++) {
+    if (even % 2 == 0)
+        console.log({ even })
+}
 
-// for (prime = 0; prime <= 100; prime++) {
-//     if ( prime )
-//         console.log({ prime })
-// }
+//8. Use for loop to iterate from 0 to 100 and print only odd numbers
 
-// let sum = 0
-// for (num = 0; num <= 100; num++) {
-//     sum = sum + num
-// }
-// console.log({ sum })
+for (odd = 0; odd <= 100; odd++) {
+    if (odd % 2 !== 0)
+        console.log({ odd })
+}
+//9. Use for loop to iterate from 0 to 100 and print only prime numbers
 
-// let evenSum = 0
-// for (even = 0; even <= 100; even++) {
-//     if (even % 2 == 0)
-//         evenSum = evenSum + even
-// }
-// console.log({ evenSum })
+for (let prime = 2; prime <= 100; prime++) {
+    if (prime % 2 === 0) {
+        console.log({ prime })
+    }
+}
 
-// let oddSum = 0
-// for (odd = 0; odd <= 100; odd++) {
-//     if (odd % 2 !== 0)
-//         oddSum = oddSum + odd
-// }
-// console.log({ oddSum })
+//10. Use for loop to iterate from 0 to 100 and print the sum of all numbers.
 
-// let arr = Array()
-// console.log(arr.push(`${evenSum}, ${oddSum}`))
-// console.log(arr)
-// arr = []
-// for (i = 1; i < 6; i++) {
-//     arr.push(Math.floor(Math.random() * 5))
-// }
-// console.log(arr)
+// The sum of all numbers from 0 to 100 is 5050.
+
+let sum = 0
+for (num = 0; num <= 100; num++) {
+    sum = sum + num
+}
+console.log({ sum })
+
+//11. Use for loop to iterate from 0 to 100 and print the sum of all evens and the sum of all odds.
+
+// The sum of all evens from 0 to 100 is 2550. And the sum of all odds from 0 to 100 is 2500.
+
+let evenSum = 0
+for (even = 0; even <= 100; even++) {
+    if (even % 2 == 0)
+        evenSum = evenSum + even
+}
+let oddSum = 0
+for (odd = 0; odd <= 100; odd++) {
+    if (odd % 2 !== 0)
+        oddSum = oddSum + odd
+}
+
+console.log(`The sum of all evens from 0 to 100 is ${evenSum}. And the sum of all odds from 0 to 100 is ${oddSum}.`)
+
+//12. Use for loop to iterate from 0 to 100 and print the sum of all evens and the sum of all odds.Print sum of evens and sum of odds as array
+
+// [2550, 2500]
+
+let arr = []
+console.log(arr.push(`${evenSum}, ${oddSum}`))
+console.log(arr)
 
 //13. Develop a small script which generate array of 5 random numbers.
 
+let emptyArrayB = Array()
+for (i = 3; i < 8; i++) {
+    emptyArrayB.push(Math.floor(Math.random() * 15))
+}
+console.log(emptyArrayB)
+//14. Develop a small script which generate array of 5 random numbers and the numbers must be unique
 
-
-
-
-
-
-
-// Use for loop to iterate from 0 to 100 and print only even numbers
-
-// Use for loop to iterate from 0 to 100 and print only odd numbers
-
-// Use for loop to iterate from 0 to 100 and print only prime numbers
-
-// Use for loop to iterate from 0 to 100 and print the sum of all numbers.
-
-// The sum of all numbers from 0 to 100 is 5050.
-// Use for loop to iterate from 0 to 100 and print the sum of all evens and the sum of all odds.
-
-// The sum of all evens from 0 to 100 is 2550. And the sum of all odds from 0 to 100 is 2500.
-// Use for loop to iterate from 0 to 100 and print the sum of all evens and the sum of all odds.Print sum of evens and sum of odds as array
-
-// [2550, 2500]
-// Develop a small script which generate array of 5 random numbers
-
-// Develop a small script which generate array of 5 random numbers and the numbers must be unique
-
-// Develop a small script which generate a six characters random id:
+//15. Develop a small script which generate a six characters random id:
 
 // 5j2khz
+
+let smallRandomId = "abcdefghijklmnopqrstuvwxyz0123456789"
+let str = ""
+for (i = 1; i < 7; i++) {
+    let random = Math.floor(Math.random() * smallRandomId.length)
+    str += (smallRandomId[random])
+}
+
+console.log(str)

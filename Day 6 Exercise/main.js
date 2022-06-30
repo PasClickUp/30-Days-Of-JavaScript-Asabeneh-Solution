@@ -1,3 +1,30 @@
+const countries = [
+    'Albania',
+    'Bolivia',
+    'Canada',
+    'Denmark',
+    'Ethiopia',
+    'Finland',
+    'Germany',
+    'Hungary',
+    'Iceland',
+    'Ireland',
+    'Japan',
+    'Kenya'
+]
+
+const webTechs = [
+    'HTML',
+    'CSS',
+    'JavaScript',
+    'React',
+    'Redux',
+    'Node',
+    'MongoDB'
+]
+
+const mernStack = ['MongoDB', 'Express', 'React', 'Node']
+
 //LEVEL 1
 
 //1. Iterate 0 to 10 using for loop, do the same using while and do while loop
@@ -166,3 +193,105 @@ for (i = 1; i < 7; i++) {
 }
 
 console.log(str)
+
+// LEVEL 2
+
+//1. Develop a small script which generate any number of characters random id:
+
+// fe3jo1gl124g
+// xkqci4utda1lmbelpkm03rba
+
+let longRandomId = "abcdefghijklmnopqrstuvwxyz0123456789"
+let longRandomStringA = ""
+let longRandomStringB = ""
+for (i = 0; i < 12; i++) {
+    let longRandomIdA = Math.floor(Math.random() * longRandomId.length)
+    longRandomStringA += (longRandomId[longRandomIdA])
+}
+
+for (i = 0; i < 24; i++) {
+    let longRandomStringB = Math.floor(Math.random() * longRandomId.length)
+    longRandomStringB += (longRandomId[longRandomId])
+}
+console.log(longRandomStringA, longRandomStringB)
+
+
+//2. Write a script which generates a random hexadecimal number.
+
+// '#ee33df'
+let ashStart = "e3df"
+let hexa = "#"
+let hexaString = " "
+for (i = 0; i < 6; i++) {
+    let ashTag = Math.floor(Math.random() * ashStart.length)
+    hexa += (ashStart[ashTag])
+}
+console.log(`'${hexa}'`)
+//3. Write a script which generates a random rgb color number.
+//     rgb(240, 180, 80)
+
+console.log(`rgb(${Math.floor(Math.random() * 241)}, ${Math.floor(Math.random() * 241)}, ${Math.floor(Math.random() * 241)})`)
+//4. Using the above countries array, create the following new array.
+// ["ALBANIA", "BOLIVIA", "CANADA", "DENMARK", "ETHIOPIA", "FINLAND", "GERMANY", "HUNGARY", "IRELAND", "JAPAN", "KENYA"]
+console.log(countries.map((country) => country.toUpperCase()))
+
+//5. Using the above countries array, create an array for countries length'.
+// [7, 7, 6, 7, 8, 7, 7, 7, 7, 5, 5]
+console.log(countries.map((country) => country.length))
+//6. Use the countries array to create the following array of arrays:
+
+// [
+//     ['Albania', 'ALB', 7],
+//     ['Bolivia', 'BOL', 7],
+//     ['Canada', 'CAN', 6],
+//     ['Denmark', 'DEN', 7],
+//     ['Ethiopia', 'ETH', 8],
+//     ['Finland', 'FIN', 7],
+//     ['Germany', 'GER', 7],
+//     ['Hungary', 'HUN', 7],
+//     ['Ireland', 'IRE', 7],
+//     ['Iceland', 'ICE', 7],
+//     ['Japan', 'JAP', 5],
+//     ['Kenya', 'KEN', 5]
+// ]
+let countrix = countries.map((country) => [country, country.slice(0, 3).toUpperCase(), country.length])
+console.log(countrix)
+
+//7. In above countries array, check if there is a country or countries containing the word 'land'.If there are countries containing 'land', print it as array.If there is no country containing the word 'land', print 'All these countries are without land'.
+// ['Finland', 'Ireland', 'Iceland']
+console.log(countries.filter((country) => country.includes("land")))
+
+//8. In above countries array, check if there is a country or countries end with a substring 'ia'.If there are countries end with, print it as array.If there is no country containing the word 'ai', print 'These are countries ends without ia'.
+// ['Albania', 'Bolivia', 'Ethiopia']
+console.log(countries.filter((country) => country.endsWith("ia")))
+
+//9. Using the above countries array, find the country containing the biggest number of characters.
+//     Ethiopia
+// console.log(countries.filter((country) => Math.max))
+//10. Using the above countries array, find the country containing only 5 characters.
+
+// ['Japan', 'Kenya']
+//11. Find the longest word in the webTechs array
+
+//12. Use the webTechs array to create the following array of arrays:
+
+// [["HTML", 4], ["CSS", 3], ["JavaScript", 10], ["React", 5], ["Redux", 5], ["Node", 4], ["MongoDB", 7]]
+//13. An application created using MongoDB, Express, React and Node is called a MERN stack app.Create the acronym MERN by using the array mernStack
+
+//14. Iterate through the array, ["HTML", "CSS", "JS", "React", "Redux", "Node", "Express", "MongoDB"] using a for loop or for of loop and print out the items.
+
+//15. This is a fruit array, ['banana', 'orange', 'mango', 'lemon'] reverse the order using loop without using a reverse method.
+
+//16. Print all the elements of array as shown below.
+
+// const fullStack = [
+//     ['HTML', 'CSS', 'JS', 'React'],
+//     ['Node', 'Express', 'MongoDB']
+// ]
+// HTML
+// CSS
+// JS
+// REACT
+// NODE
+// EXPRESS
+// MONGODB

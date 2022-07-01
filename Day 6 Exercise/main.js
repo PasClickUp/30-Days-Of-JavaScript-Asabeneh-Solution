@@ -267,23 +267,28 @@ console.log(countries.filter((country) => country.endsWith("ia")))
 
 //9. Using the above countries array, find the country containing the biggest number of characters.
 //     Ethiopia
-// console.log(countries.filter((country) => Math.max))
-//10. Using the above countries array, find the country containing only 5 characters.
+// console.log(countries.filter((country) => country))
 
+//10. Using the above countries array, find the country containing only 5 characters.
 // ['Japan', 'Kenya']
+console.log(countries.filter((country) => country))
 //11. Find the longest word in the webTechs array
 
 //12. Use the webTechs array to create the following array of arrays:
 
 // [["HTML", 4], ["CSS", 3], ["JavaScript", 10], ["React", 5], ["Redux", 5], ["Node", 4], ["MongoDB", 7]]
+
+console.log(webTechs.map((webTech) => [webTech, webTech.length]))
 //13. An application created using MongoDB, Express, React and Node is called a MERN stack app.Create the acronym MERN by using the array mernStack
-
+console.log(mernStack.map((stack) => stack.slice(0, 1).split("").join()))
 //14. Iterate through the array, ["HTML", "CSS", "JS", "React", "Redux", "Node", "Express", "MongoDB"] using a for loop or for of loop and print out the items.
-
+for (i = 0; i < webTechs.length; i++) {
+    console.log(webTechs[i])
+}
 //15. This is a fruit array, ['banana', 'orange', 'mango', 'lemon'] reverse the order using loop without using a reverse method.
-
+let fruitArray = ['banana', 'orange', 'mango', 'lemon']
+console.log(fruitArray.reverse())
 //16. Print all the elements of array as shown below.
-
 // const fullStack = [
 //     ['HTML', 'CSS', 'JS', 'React'],
 //     ['Node', 'Express', 'MongoDB']
@@ -295,3 +300,32 @@ console.log(countries.filter((country) => country.endsWith("ia")))
 // NODE
 // EXPRESS
 // MONGODB
+
+// const countrries = Request('/countries')
+// import  from 
+
+// LEVEL 3
+
+//1. Copy countries array(Avoid mutation)
+let anotherCountries = [...countries]
+//2. Arrays are mutable.Create a copy of array which does not modify the original.Sort the copied array and store in a variable sortedCountries
+let sortedCountries = anotherCountries.sort()
+
+//3. Sort the webTechs array and mernStack array
+let sortedWebtechs = webTechs.sort()
+let sortedmernStacks = mernStack.sort()
+console.log(sortedCountries, sortedWebtechs, sortedmernStacks)
+//4. Extract all the countries contain the word 'land' from the countries array and print it as array
+let countriesWithLand = countries.filter((country) => country.includes("land"))
+let countryArray = []
+countryArray += countryArray + countriesWithLand
+console.log([countryArray])
+
+//5. Find the country containing the hightest number of characters in the countries array
+function forCountryLongest(countries) {
+
+}
+//6. Extract all the countries contain the word 'land' from the countries array and print it as array
+//7. Extract all the countries containing only four characters from the countries array and print it as array
+//8. Extract all the countries containing two or more words from the countries array and print it as array
+//9. Reverse the countries array and capitalize each country and stored it as an array

@@ -13,6 +13,7 @@ const countries = [
     'Kenya'
 ]
 
+import countriexes from './countries.js'
 const webTechs = [
     'HTML',
     'CSS',
@@ -61,7 +62,7 @@ do {
 
 //3. Iterate 0 to n using for loop
 let n = 7
-for (i = 0; i <= n; i++) {
+for (let i = 0; i <= n; i++) {
     console.log({ i })
 }
 
@@ -76,7 +77,7 @@ for (i = 0; i <= n; i++) {
 //     #######
 
 
-for (ash = 1; ash <= 7; ash++) {
+for (let ash = 1; ash <= 7; ash++) {
     console.log('#'.repeat(ash))
 }
 //5. Use loop to print the following pattern:
@@ -93,7 +94,7 @@ for (ash = 1; ash <= 7; ash++) {
 // 9 x 9 = 81
 // 10 x 10 = 100
 
-for (index = 0; index <= 10; index++) {
+for (let index = 0; index <= 10; index++) {
     console.log(`${index} * ${index} = ${index * index}`)
 }
 
@@ -112,28 +113,37 @@ for (index = 0; index <= 10; index++) {
 // 9    81    729
 // 10   100   1000
 
-for (dex = 1; dex <= 10; dex++) {
+for (let dex = 1; dex <= 10; dex++) {
     console.log(`${dex}   ${dex ** 2}   ${dex ** 3}`)
 }
 
 //7. Use for loop to iterate from 0 to 100 and print only even numbers
 
-for (even = 0; even <= 100; even++) {
+for (let even = 0; even <= 100; even++) {
     if (even % 2 == 0)
         console.log({ even })
 }
 
 //8. Use for loop to iterate from 0 to 100 and print only odd numbers
 
-for (odd = 0; odd <= 100; odd++) {
+for (let odd = 0; odd <= 100; odd++) {
     if (odd % 2 !== 0)
         console.log({ odd })
 }
 //9. Use for loop to iterate from 0 to 100 and print only prime numbers
 
-for (let prime = 2; prime <= 100; prime++) {
-    if (prime % 2 === 0) {
-        console.log({ prime })
+function isPrime(num) {
+    if (num < 2) return false;
+    for (var i = 2; i < num; i++) {
+        if (num % i === 0)
+            return false;
+    }
+    return true;
+}
+
+for (let i = 0; i < 100; i++) {
+    if (isPrime(i)) {
+        console.log(i)
     }
 }
 
@@ -142,7 +152,7 @@ for (let prime = 2; prime <= 100; prime++) {
 // The sum of all numbers from 0 to 100 is 5050.
 
 let sum = 0
-for (num = 0; num <= 100; num++) {
+for (let num = 0; num <= 100; num++) {
     sum = sum + num
 }
 console.log({ sum })
@@ -152,12 +162,12 @@ console.log({ sum })
 // The sum of all evens from 0 to 100 is 2550. And the sum of all odds from 0 to 100 is 2500.
 
 let evenSum = 0
-for (even = 0; even <= 100; even++) {
+for (let even = 0; even <= 100; even++) {
     if (even % 2 == 0)
         evenSum = evenSum + even
 }
 let oddSum = 0
-for (odd = 0; odd <= 100; odd++) {
+for (let odd = 0; odd <= 100; odd++) {
     if (odd % 2 !== 0)
         oddSum = oddSum + odd
 }
@@ -175,7 +185,7 @@ console.log(arr)
 //13. Develop a small script which generate array of 5 random numbers.
 
 let emptyArrayB = Array()
-for (i = 3; i < 8; i++) {
+for (let i = 3; i < 8; i++) {
     emptyArrayB.push(Math.floor(Math.random() * 15))
 }
 console.log(emptyArrayB)
@@ -187,7 +197,7 @@ console.log(emptyArrayB)
 
 let smallRandomId = "abcdefghijklmnopqrstuvwxyz0123456789"
 let str = ""
-for (i = 1; i < 7; i++) {
+for (let i = 1; i < 7; i++) {
     let random = Math.floor(Math.random() * smallRandomId.length)
     str += (smallRandomId[random])
 }
@@ -204,12 +214,12 @@ console.log(str)
 let longRandomId = "abcdefghijklmnopqrstuvwxyz0123456789"
 let longRandomStringA = ""
 let longRandomStringB = ""
-for (i = 0; i < 12; i++) {
+for (let i = 0; i < 12; i++) {
     let longRandomIdA = Math.floor(Math.random() * longRandomId.length)
     longRandomStringA += (longRandomId[longRandomIdA])
 }
 
-for (i = 0; i < 24; i++) {
+for (let i = 0; i < 24; i++) {
     let longRandomStringB = Math.floor(Math.random() * longRandomId.length)
     longRandomStringB += (longRandomId[longRandomId])
 }
@@ -221,8 +231,7 @@ console.log(longRandomStringA, longRandomStringB)
 // '#ee33df'
 let ashStart = "e3df"
 let hexa = "#"
-let hexaString = " "
-for (i = 0; i < 6; i++) {
+for (let i = 0; i < 6; i++) {
     let ashTag = Math.floor(Math.random() * ashStart.length)
     hexa += (ashStart[ashTag])
 }
@@ -267,13 +276,23 @@ console.log(countries.filter((country) => country.endsWith("ia")))
 
 //9. Using the above countries array, find the country containing the biggest number of characters.
 //     Ethiopia
-// console.log(countries.filter((country) => country))
+
+let longestCountry = countries[0]
+for (let l = 0; l < countries.length; l++) {
+    countries[l].length > longestCountry.length ? longestCountry = countries[l] : longestCountry;
+}
+console.log(longestCountry)
 
 //10. Using the above countries array, find the country containing only 5 characters.
 // ['Japan', 'Kenya']
-console.log(countries.filter((country) => country))
-//11. Find the longest word in the webTechs array
 
+console.log(countries.filter((country) => country.length === 5))
+//11. Find the longest word in the webTechs array
+let longestWeb = webTechs[0]
+for (let w = 0; w < webTechs.length; w++) {
+    webTechs[w].length > webTechs.length ? longestWeb = webTechs[w] : longestWeb;
+}
+console.log(longestWeb)
 //12. Use the webTechs array to create the following array of arrays:
 
 // [["HTML", 4], ["CSS", 3], ["JavaScript", 10], ["React", 5], ["Redux", 5], ["Node", 4], ["MongoDB", 7]]
@@ -282,17 +301,17 @@ console.log(webTechs.map((webTech) => [webTech, webTech.length]))
 //13. An application created using MongoDB, Express, React and Node is called a MERN stack app.Create the acronym MERN by using the array mernStack
 console.log(mernStack.map((stack) => stack.slice(0, 1).split("").join()))
 //14. Iterate through the array, ["HTML", "CSS", "JS", "React", "Redux", "Node", "Express", "MongoDB"] using a for loop or for of loop and print out the items.
-for (i = 0; i < webTechs.length; i++) {
+for (let i = 0; i < webTechs.length; i++) {
     console.log(webTechs[i])
 }
 //15. This is a fruit array, ['banana', 'orange', 'mango', 'lemon'] reverse the order using loop without using a reverse method.
 let fruitArray = ['banana', 'orange', 'mango', 'lemon']
 console.log(fruitArray.reverse())
 //16. Print all the elements of array as shown below.
-// const fullStack = [
-//     ['HTML', 'CSS', 'JS', 'React'],
-//     ['Node', 'Express', 'MongoDB']
-// ]
+const fullStack = [
+    ['HTML', 'CSS', 'JS', 'React'],
+    ['Node', 'Express', 'MongoDB']
+]
 // HTML
 // CSS
 // JS
@@ -300,9 +319,9 @@ console.log(fruitArray.reverse())
 // NODE
 // EXPRESS
 // MONGODB
-
-// const countrries = Request('/countries')
-// import  from 
+// for (let Stack = 0; Stack < fullStack.length; Stack++) {
+//     console.log(fullStack[Stack])
+// }
 
 // LEVEL 3
 
@@ -316,16 +335,18 @@ let sortedWebtechs = webTechs.sort()
 let sortedmernStacks = mernStack.sort()
 console.log(sortedCountries, sortedWebtechs, sortedmernStacks)
 //4. Extract all the countries contain the word 'land' from the countries array and print it as array
-let countriesWithLand = countries.filter((country) => country.includes("land"))
-let countryArray = []
-countryArray += countryArray + countriesWithLand
-console.log([countryArray])
-
+let countriesWithLand = countriexes.filter((country) => country.includes("land"))
+console.log(countriesWithLand)
 //5. Find the country containing the hightest number of characters in the countries array
-function forCountryLongest(countries) {
-
-}
+let sortedCountrixes = countriexes.sort((a, b) => b.length - a.length)
+let longestCountrixes = sortedCountrixes[0]
+console.log(longestCountrixes)
 //6. Extract all the countries contain the word 'land' from the countries array and print it as array
 //7. Extract all the countries containing only four characters from the countries array and print it as array
+console.log(countriexes.filter((country) => country.length === 4))
 //8. Extract all the countries containing two or more words from the countries array and print it as array
+
 //9. Reverse the countries array and capitalize each country and stored it as an array
+let reverseCountriexes = countriexes.reverse()
+// let countriexesUpperCase = reverseCountriexes.filter((country) => country.toUpperCase())
+console.log(reverseCountriexes.filter((country) => country.toUpperCase()))

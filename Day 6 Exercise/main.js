@@ -319,9 +319,11 @@ const fullStack = [
 // NODE
 // EXPRESS
 // MONGODB
-// for (let Stack = 0; Stack < fullStack.length; Stack++) {
-//     console.log(fullStack[Stack])
-// }
+for (let i = 0; i < fullStack.length; i++) {
+    for (let j = 0; j < fullStack[i].length; j++) {
+        console.log(fullStack[i][j])
+    }
+}
 
 // LEVEL 3
 

@@ -291,7 +291,7 @@ console.log(sumArguments(1, 3, 5, 10, 11))
 // 15. Write a function which generates a randomUserIp.
 //IP addresses are expressed as a set of four numbers — an example address might be 192.158. 1.38. Each number in the set can range from 0 to 255.
 
-console.log(`${Math.floor(Math.random() * 200)}.${Math.floor(Math.random() * 200)}.${Math.floor(Math.random() * 250)}.${Math.floor(Math.random() * 200)}`)
+console.log(`${Math.floor(Math.random() * 250)}.${Math.floor(Math.random() * 250)}.${Math.floor(Math.random() * 250)}.${Math.floor(Math.random() * 250)}`)
 // 16. Write a function which generates a randomMacAddress
 
 // 17. Declare a function name randomHexaNumberGenerator.When this function is called it generates a random hexadecimal number.The function return the hexadecimal number.

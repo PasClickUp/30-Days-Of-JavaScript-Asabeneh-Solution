@@ -266,22 +266,32 @@ console.log(sumOfEven(10))
 let evensAndOdds = (number) => {
     let even = 0
     let odd = 0
-    for (let n = 0; n < number; n++) {
+    for (let n = 0; n <= number; n++) {
         if (n % 2 === 0) {
             even++
         } else {
             odd++
         }
     }
-    return `The number of odds are `
+    return `The number of odds are ${odd}. \nThe number of evens are ${even}.`
 }
-
+console.log(evensAndOdds(100))
 // 14. Write a function which takes any number of arguments and return the sum of the arguments
 
 // sum(1, 2, 3) // -> 6
 // sum(1, 2, 3, 4) // -> 10
+let sumArguments = (...args) => {
+    let sum = 0
+    for (let s = 0; s < args.length; s++) {
+        sum = sum + args[s]
+    }
+    return sum
+}
+console.log(sumArguments(1, 3, 5, 10, 11))
 // 15. Write a function which generates a randomUserIp.
+//IP addresses are expressed as a set of four numbers — an example address might be 192.158. 1.38. Each number in the set can range from 0 to 255.
 
+console.log(`${Math.floor(Math.random() * 200)}.${Math.floor(Math.random() * 200)}.${Math.floor(Math.random() * 250)}.${Math.floor(Math.random() * 200)}`)
 // 16. Write a function which generates a randomMacAddress
 
 // 17. Declare a function name randomHexaNumberGenerator.When this function is called it generates a random hexadecimal number.The function return the hexadecimal number.

@@ -293,11 +293,22 @@ console.log(sumArguments(1, 3, 5, 10, 11))
 
 console.log(`${Math.floor(Math.random() * 250)}.${Math.floor(Math.random() * 250)}.${Math.floor(Math.random() * 250)}.${Math.floor(Math.random() * 250)}`)
 // 16. Write a function which generates a randomMacAddress
+//A valid MAC address must satisfy the following conditions: It must contain 12 hexadecimal digits. One way to represent them is to form six pairs of the characters separated with a hyphen (-) or colon(:). For example, 01-23-45-67-89-AB is a valid MAC address.
+let twoAlphabets = () => {
+    let alpha = "ABCDEF"
+    let emptyStr = ""
+    for (let a = 0; a < 2; a++) {
+        emptyStr += alpha.charAt(Math.floor(Math.random() * alpha.length))
+    }
+    return emptyStr
+}
+console.log()
+console.log(`${Math.floor(Math.random() * 90)}-${Math.floor(Math.random() * 90)}-${Math.floor(Math.random() * 90)}-${Math.floor(Math.random() * 90)}-${Math.floor(Math.random() * 90)}-${twoAlphabets()}`)
 
 // 17. Declare a function name randomHexaNumberGenerator.When this function is called it generates a random hexadecimal number.The function return the hexadecimal number.
-
 //     console.log(randomHexaNumberGenerator());
 // '#ee33df'
+
 // 18. Declare a function name userIdGenerator.When this function is called it generates seven character id.The function return the id.
 
 //     console.log(userIdGenerator());

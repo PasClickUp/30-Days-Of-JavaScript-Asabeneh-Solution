@@ -25,7 +25,7 @@ dog.getDogInfo = function () {
 
 //LEVEL 2
 
-const users = {
+let users = {
     Alex: {
         email: 'alex@alex.com',
         skills: ['HTML', 'CSS', 'JavaScript'],
@@ -105,16 +105,55 @@ let numOfUsersWithPointsUpToFifty = newA.length
 console.log({ numOfUsersOnline, numOfUsersWithPointsUpToFifty })
 
 // 3. Find people who are MERN stack developer from the users object
-let aarray = []
+let MERNStackDevelopers = []
 for (let user in users) {
-    if (users[user].skills[0].includes("MERN")) {
-        aarray.push(user)
+    if (users[user].skills.includes('MongoDB', 'Express', 'React', 'Node')) {
+        MERNStackDevelopers.push(user)
     }
 }
+console.log(MERNStackDevelopers)
 // 4. Set your name in the users object without modifying the original users object
-
+let newUsers = users
+newUsers.myName = "Abdussomad Abdulqodir Pa-aranti"
+console.log(newUsers)
 // 5. Get all keys or properties of users object
-
+let getAllKeys = Object.keys(users)
+console.log(getAllKeys)
 // 6. Get all the values of users object
-
+let getAllvalues = Object.values(users)
+console.log(getAllvalues)
 // 7. Use the countries object to print a country name, capital, populations and languages.
+
+let countries = {
+    Kazakhstan: {
+        capital: "Nur-Sultan",
+        population: 1239900,
+        languages: "Arabic, English"
+    },
+    Nigeria: {
+        capital: "Abuja",
+        population: 1235880,
+        languages: "Arabic, English, Yoruba, Hausa, Igbo"
+    },
+    Georgia: {
+        capital: "Tbilisi",
+        population: 1202731,
+        languages: "Arabic, English"
+    },
+    Mauritania: {
+        capital: "Nouakchott",
+        population: 1195600,
+        languages: "Arabic, English"
+    },
+    Qatar: {
+        capital: "Doha",
+        population: 1186023,
+        languages: "Arabic, English"
+    },
+    Libya: {
+        capital: "Tripoli",
+        population: 1170000,
+        languages: "Arabic, English"
+    },
+}
+console.log(countries.Nigeria)

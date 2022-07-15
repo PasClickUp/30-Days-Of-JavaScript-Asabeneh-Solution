@@ -134,8 +134,8 @@ for (let odd = 0; odd <= 100; odd++) {
 
 function isPrime(num) {
     if (num < 2) return false;
-    for (var i = 2; i < num; i++) {
-        if (num % i === 0)
+    for (let i = 2; i < num; i++) {
+        if (num % i == 0)
             return false;
     }
     return true;
@@ -329,7 +329,7 @@ for (let i = 0; i < fullStack.length; i++) {
 
 //1. Copy countries array(Avoid mutation)
 let anotherCountries = [...countries]
-//2. Arrays are mutable.Create a copy of array which does not modify the original.Sort the copied array and store in a variable sortedCountries
+//2. Arrays are mutable.Create a copy of array which does not modify the original.Sort the copied array and store in a letiable sortedCountries
 let sortedCountries = anotherCountries.sort()
 
 //3. Sort the webTechs array and mernStack array

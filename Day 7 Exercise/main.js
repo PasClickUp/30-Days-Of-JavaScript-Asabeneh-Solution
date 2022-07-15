@@ -120,21 +120,20 @@ CalculateBMI(27, 25)
 //14. Write a function called checkSeason, it takes a month parameter and returns the season:Autumn, Winter, Spring or Summer.
 // let month = prompt("Enter Month")
 function checkSeason(month) {
-    let momth = "July"
-    if (month === "March" || month === "April" || momth === "May") {
+    if (month === "march" || month === "april" || month === "may") {
         return "Spring"
-    } else if (month === "June" || month === "July" || month === "August") {
+    } else if (month === "june" || month === "july" || month === "august") {
         return "Summer"
-    } else if (month === "September" || month === "October" || month === "November") {
+    } else if (month === "september" || month === "october" || month === "november") {
         return "Autum"
-    } else if (month === "December" || month === "January" || month === "February") {
+    } else if (month === "december" || month === "january" || month === "february") {
         return "Winter"
     } else {
         return "Not a month"
     }
 }
 
-console.log(checkSeason("January"))
+console.log(checkSeason("JaNUaRy".toLowerCase()))
 
 // 15. Math.max returns its largest argument. Write a function findMax that takes three arguments and returns their maximum with out using Math.max method.
 
@@ -449,35 +448,112 @@ sumArgument(5)
 
 // 12. Write a function called sumOfArrayItems, it takes an array parameter and return the sum of all the items.Check if all the array items are number types.If not give return reasonable feedback.
 let sumOfArrayItems = (array) => {
-    let items = 0
-    for (let a = 0; a <= array.length; a++) {
-        if (array[a] === `number`) {
-            items = items + a
+    let total = 0
+    for (let a = 0; a < array.length; a++) {
+        if (typeof array[a] === "number") {
+            total += array[a]
         }
     }
-    console.log(items)
+    return total
 }
-// sumOfArrayItems([1, 2])
+console.log(sumOfArrayItems([1, "rice", 3, 2, 7, 4]))
 // 13. Write a function called average, it takes an array parameter and returns the average of the items.Check if all the array items are number types.If not give return reasonable feedback.
-
+let average = (array) => {
+    let sum = 0
+    let numArr = []
+    let result = 0
+    // for (let r = 0; r < array.length; r++) {
+    //     if (typeof array[r] === "number") {
+    //         sum = sum + array[r] / array.length
+    //         // result = sum / array[r].length
+    //     }
+    // }
+    array.forEach((item) => {
+        if (typeof item === 'number') {
+            numArr.push(item)
+            sum = sum + item
+        }
+    })
+    result = sum / numArr.length
+    console.log(numArr.length, sum)
+    return result
+}
+console.log(average([1, 3, 5, 5, "bread", 5]))
 // 14. Write a function called modifyArray takes array as parameter and modifies the fifth item of the array and return the array.If the array length is less than five it return 'item not found'.
 
-//     console.log(modifyArray(['Avocado', 'Tomato', 'Potato', 'Mango', 'Lemon', 'Carrot']);
+//console.log(modifyArray(['Avocado', 'Tomato', 'Potato', 'Mango', 'Lemon', 'Carrot']);
 // ['Avocado', 'Tomato', 'Potato', 'Mango', 'LEMON', 'Carrot']
 // console.log(modifyArray(['Google', 'Facebook', 'Apple', 'Amazon', 'Microsoft', 'IBM']);
 // ['Google', 'Facebook', 'Apple', 'Amazon', 'MICROSOFT', 'IBM']
 // console.log(modifyArray(['Google', 'Facebook', 'Apple', 'Amazon']);
 // 'Not Found'
+let modifyArray = (array) => {
+    if (array.length < 5) {
+        console.log("item not found");
+        return
+    }
+
+    let newArray = array.map((item, itemIndex) => {
+        if (itemIndex == 4) {
+            return item.toUpperCase()
+        }
+        return item
+    })
+    console.log(newArray)
+
+}
+
+modifyArray(['Avocado', 'Tomato', 'Potato', 'Mango', 'potato'])
 // 15. Write a function called isPrime, which checks if a number is prime number.
-
+let isPrime = (num) => {
+    if (num < 2) return `not prime number`
+    for (let i = 2; i < num; i++)
+        if (num % i === 0) {
+            return `not prime number`
+        }
+    return `prime number`
+}
+console.log(isPrime(9))
 // 16. Write a functions which checks if all items are unique in the array.
-
+let uniqueItems = (array) => {
+    if (array.every(b => b == array[0])) {
+        console.log(true)
+    } else {
+        console.log(false)
+    }
+}
+uniqueItems(["bread", "butter", 1]) //false
+uniqueItems([1, 1, 1]) //true
+uniqueItems([1, 2, 1, 3, 4]) //false
 // 17. Write a function which checks if all the items of the array are the same data type.
-
+let checkSameDataTypes = (array) => {
+    if (array.every((a) => typeof a === typeof array[0])) {
+        console.log(true)
+    } else {
+        console.log(false)
+    }
+}
+checkSameDataTypes([1, 3, 4, 5]) //true
+checkSameDataTypes([1, 3, 5, 6, "butter"]) //false
+checkSameDataTypes(["live", "worship", "enjoy", "leave"])//true
 // 18. JavaScript variable name does not support special characters or symbols except $ or _.Write a function isValidVariable which check if a variable is valid or invalid variable.
 
 // 19. Write a function which returns array of seven random numbers in a range of 0 - 9. All the numbers must be unique.
 
 //     sevenRandomNumbers()
 // [(1, 4, 5, 7, 9, 8, 0)]
-// 20. Write a function called reverseCountries, it takes countries array and first it copy the array and returns the reverse of the original array.
+let sevenRandomNumbers = () => {
+    let emptyarr = []
+    for (let index = 0; index < 7; index++) {
+        emptyarr.push(Math.floor(Math.random() * 9))
+    }
+    console.log((emptyarr))
+}
+sevenRandomNumbers()
+// 20. Write a function called reverseCountries, it takes countries array and first it copy the array and returns the reverse of the original array. 
+
+let reverseCountries = (array) => {
+    array.reverse()
+    console.log(array)
+}
+reverseCountries(["Nigeria", "Saudi-Arabia", "Dubai", "Qatar", "Palestine", "Gaza"])

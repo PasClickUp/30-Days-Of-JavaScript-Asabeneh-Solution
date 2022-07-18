@@ -157,3 +157,151 @@ let countries = {
     },
 }
 console.log(countries.Nigeria)
+
+//LEVEL 3
+
+// 1. Create an object literal called personAccount.It has firstName, lastName, incomes, expenses properties and it has totalIncome, totalExpense, accountInfo, addIncome, addExpense and accountBalance methods.Incomes is a set of incomes and its description and expenses is a set of incomes and its description.
+let personAccount = {
+    firstName: "",
+    lastName: "",
+    incomes: [],
+    expenses: [],
+    addIncome: function (income) {
+        this.incomes.push(income)
+    },
+    addExpense: function (expense) {
+        this.expenses.push(expense)
+    },
+    totalIncome: function () {
+        return this.incomes.reduce((acc, cur) => acc + cur, 0)
+    },
+    totalExpense: function () {
+        return this.expenses.reduce((acc, cur) => acc + cur, 0)
+    },
+    accountBalance: function () {
+        return this.totalIncome() - this.totalExpense()
+    },
+    accountInfo: function () {
+        return `This account is a demo account for ${this.firstName} ${this.lastName}, His total expense is ${this.totalExpense()} and his total income is ${this.totalIncome()} and his current account balance is ${this.accountBalance()}`
+    },
+}
+personAccount.firstName = "Abdussomad"
+personAccount.lastName = "Abdulqodir"
+personAccount.addIncome(1000)
+personAccount.addIncome(5000)
+personAccount.addIncome(14000)
+personAccount.addExpense(100)
+personAccount.addExpense(500)
+personAccount.addExpense(1400)
+console.log(personAccount.accountInfo())
+console.log(personAccount.totalExpense())
+// **** Questions: 2, 3 and 4 are based on the following two arrays:users and products()
+let usersB = [
+    {
+        _id: 'ab12ex',
+        username: 'Alex',
+        email: 'alex@alex.com',
+        password: '123123',
+        createdAt: '08/01/2020 9:00 AM',
+        isLoggedIn: false
+    },
+    {
+        _id: 'fg12cy',
+        username: 'Asab',
+        email: 'asab@asab.com',
+        password: '123456',
+        createdAt: '08/01/2020 9:30 AM',
+        isLoggedIn: true
+    },
+    {
+        _id: 'zwf8md',
+        username: 'Brook',
+        email: 'brook@brook.com',
+        password: '123111',
+        createdAt: '08/01/2020 9:45 AM',
+        isLoggedIn: true
+    },
+    {
+        _id: 'eefamr',
+        username: 'Martha',
+        email: 'martha@martha.com',
+        password: '123222',
+        createdAt: '08/01/2020 9:50 AM',
+        isLoggedIn: false
+    },
+    {
+        _id: 'ghderc',
+        username: 'Thomas',
+        email: 'thomas@thomas.com',
+        password: '123333',
+        createdAt: '08/01/2020 10:00 AM',
+        isLoggedIn: false
+    }
+];
+
+let products = [
+    {
+        _id: 'eedfcf',
+        name: 'mobile phone',
+        description: 'Huawei Honor',
+        price: 200,
+        ratings: [
+            { userId: 'fg12cy', rate: 5 },
+            { userId: 'zwf8md', rate: 4.5 }
+        ],
+        likes: []
+    },
+    {
+        _id: 'aegfal',
+        name: 'Laptop',
+        description: 'MacPro: System Darwin',
+        price: 2500,
+        ratings: [],
+        likes: ['fg12cy']
+    },
+    {
+        _id: 'hedfcg',
+        name: 'TV',
+        description: 'Smart TV:Procaster',
+        price: 400,
+        ratings: [{ userId: 'fg12cy', rate: 5 }],
+        likes: ['fg12cy']
+    }
+]
+// 2. Imagine you are getting the above users collection from a MongoDB database.
+// a.Create a function called signUp which allows user to add to the collection.If user exists, inform the user that he has already an account.
+let signUp = (newEmail, username, password) => {
+    let existingUser = usersB.find(({ email }) => email.toLowerCase() === newEmail.toLowerCase())
+    if (existingUser) {
+        console.log("You already have an account")
+    } else {
+        let newUser = {
+            _id: Math.random.toString(36).substring(0, 6),
+            username: username,
+            password: password,
+            createdAt: new Date().toLocaleString(),
+            isLoggedIn: false,
+        }
+        usersB.push(newUser)
+        console.log(usersB)
+    }
+}
+signUp("js@fullStack.com", "thomson", "slick12")
+// b.Create a function called signIn which allows user to sign in to the application
+let signIn = (newEmail, password) => {
+    let existingUser = usersB.find(({ email }) => email === newEmail)
+    if (existingUser) {
+        if (existingUser.password === password) {
+            existingUser.isLoggedIn = true
+            console.log(usersB)
+        }
+    } else {
+        console.log("Invalid email or password.")
+    }
+}
+signIn('martha@martha.com', '123222')
+// 3. The products array has three elements and each of them has six properties.
+// a.Create a function called rateProduct which rates the product. 
+// b.Create a function called averageRating which calculate the average rating of a product
+
+// 4. Create a function called likeProduct.This function will helps to like to the product if it is not liked and remove like if it was liked.

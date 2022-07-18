@@ -302,6 +302,7 @@ let signIn = (newEmail, password) => {
 signIn('martha@martha.com', '123222')
 // 3. The products array has three elements and each of them has six properties.
 // a.Create a function called rateProduct which rates the product. 
+
 // b.Create a function called averageRating which calculate the average rating of a product
 
 // 4. Create a function called likeProduct.This function will helps to like to the product if it is not liked and remove like if it was liked.

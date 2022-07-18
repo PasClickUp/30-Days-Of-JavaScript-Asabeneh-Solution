@@ -1,7 +1,4 @@
-//1. Explain the difference between forEach, map, filter, and reduce.
-
-//2. Define a callback function before you use it in forEach, map, filter or reduce.
-
+//LEVEL 1
 const countries = ['Finland', 'Sweden', 'Denmark', 'Norway', 'IceLand']
 const names = ['Asabeneh', 'Mathias', 'Elias', 'Brook']
 const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
@@ -13,8 +10,16 @@ const products = [
     { product: 'coffee', price: 10 },
     { product: 'tea', price: '' },
 ]
-//3. Use forEach to console.log each country in the countries array.
+//1. Explain the difference between forEach, map, filter, and reduce.
+// Foreach takes a callback function and run that callback function on each element of array individually, it's outptut is similar to that of the for Loop.
+//filter executes the callback and check its return value. If the value is true, element remains in the resulting array but if the return value is false the element will be removed for the resulting array it returns a new array.
+//Map takes a callback as well, and run it against every element on the array but what makes it unique is it generate a new array based on your existing array.
+//Reduce reduces the array into one single value by summing them up and returns it upon completion.
 
+//2. Define a callback function before you use it in forEach, map, filter or reduce.
+// A callback function is a function passed into another function as an argument, which is then invoked inside the outer function to complete some kind of routine or action. 
+
+//3. Use forEach to console.log each country in the countries array.
 countries.forEach((country) => console.log({ country }))
 //4. Use forEach to console.log each name in the names array.
 names.forEach((name) => console.log({ name }))
@@ -33,6 +38,12 @@ console.log(numberSquare)
 let nameUppercase = names.map((name) => name.toUpperCase())
 console.log(nameUppercase)
 //10. Use map to map the products array to its corresponding prices.
+let correspondingPrices = products.map(({ product, price }) => {
+    const obj = {};
+    obj[product] = price
+    return obj
+})
+console.log(correspondingPrices)
 
 //11. Use filter to filter out countries containing land.
 let countriesWithLand = countries.filter((country) => country.includes("land"))
@@ -41,7 +52,7 @@ console.log(countriesWithLand)
 let countryWithSixCharacter = countries.filter((country) => country.length === 6)
 console.log(countryWithSixCharacter)
 //13. Use filter to filter out countries containing six letters and more in the country array.
-let countryWithSixCharacterOrMore = countries.filter((country) => country.length <= 6)
+let countryWithSixCharacterOrMore = countries.filter((country) => country.length >= 6)
 console.log(countryWithSixCharacterOrMore)
 //14. Use filter to filter out country start with 'E';
 let countriesThatStartWithE = countries.filter((country) => country[0] == "E")

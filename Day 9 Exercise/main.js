@@ -58,8 +58,8 @@ console.log(countryWithSixCharacterOrMore)
 let countriesThatStartWithE = countries.filter((country) => country[0] == "E")
 console.log(countriesThatStartWithE)
 //15. Use filter to filter out only prices with values.
-let pricesAndValue = products.filter((score) => score)
-console.log(pricesAndValue)
+let pricesWithValue = products.filter(({ price }) => typeof price === "number")
+console.log(pricesWithValue)
 //16. Declare a function called getStringLists which takes an array as a parameter and then returns an array only with string items.
 const getStringLists = countries.map((country) => country.toLocaleLowerCase())
 console.log(getStringLists)
@@ -67,14 +67,41 @@ console.log(getStringLists)
 let addNumbers = numbers.reduce((num, ber) => num + ber, 0)
 console.log(addNumbers)
 //18. Use reduce to concatenate all the countries and to produce this sentence: Estonia, Finland, Sweden, Denmark, Norway, and IceLand are north European countries
-let concatenateCountries = countries.reduce((acc, cur) => `Estonia, Finland, Sweden, Denmark, Norway, and IceLand are north European countries.`)
+let concatenateCountries = countries.reduce((acc, cur, i, arr) => {
+    const lastindex = arr[arr.length - 1]
+    acc += cur !== lastindex ? cur + ', ' : 'and ' + cur + ' are north European countries.'
+    return acc
+}, "")
 console.log(concatenateCountries)
+
 //19. Explain the difference between some and every
-    
+
+//every function mainly checks if some elements in the array are similar while some functions mainly checks if some of the elements are similar.
+
 //20. Use some to check if some names' length greater than seven in names array
+let ifNameLengthGreaterSeven = names.some((name) => name.length > 7)
 //21. Use every to check if all the countries contain the word land
+let ifCountriesContainsLand = countries.every((country) => country.includes("land"))
 //22. Explain the difference between find and findIndex.
+
+//find Return the first element which satisfies the condition while findIndex Returns the index of the element which satisfies the condition.
+
 //23. Use find to find the first country containing only six letters in the countries array
+let firstCountryContainingSixLetters = countries.find((country) => country.length === 6)
 //24. Use findIndex to find the position of the first country containing only six letters in the countries array
+let firstCountryIndexSixLetters = countries.findIndex((country) => country.length === 6)
 //25. Use findIndex to find the position of Norway if it doesn't exist in the array you will get -1.
+let findIndexOfNorway = countries.findIndex((country) => country.toLowerCase() == "norway")
 //26. Use findIndex to find the position of Russia if it doesn't exist in the array you will get -1.
+let findIndexOfRussia = countries.findIndex((country) => country.toLowerCase() == "russia")
+
+//LEVEL 2
+
+//1. Find the total price of products by chaining two or more array iterators(eg.arr.map(callback).filter(callback).reduce(callback)).
+
+//2. Find the sum of price of products using only reduce reduce(callback)).
+//3. Declare a function called categorizeCountries which returns an array of countries which have some common pattern(you find the countries array in this repository as countries.js(eg 'land', 'ia', 'island', 'stan')).
+//4. Create a function which return an array of objects, which is the letter and the number of times the letter use to start with a name of a country.
+//5. Declare a getFirstTenCountries function and return an array of ten countries.Use different functional programming to work on the countries.js array
+//6. Declare a getLastTenCountries function which which returns the last ten countries in the countries array.
+//7. Find out which letter is used many times as initial for a country name from the countries array(eg.Finland, Fiji, France etc)

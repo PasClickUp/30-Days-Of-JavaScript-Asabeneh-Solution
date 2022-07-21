@@ -186,9 +186,7 @@ let mostSpokenLanguages = (arr, num) => {
 }
 console.log(mostSpokenLanguages(countryData, 3))
 //3. *** Use countries_data.js file create a function which create the ten most populated countries
-console.log(countryData[100])
-let mostPopulatedCountries = countryData.map(({ population }) => population)
-console.log(mostPopulatedCountries)
+
 // console.log(mostPopulatedCountries(countries, 10))
 // [
 //     { country: 'China', population: 1377422166 },
@@ -209,6 +207,11 @@ console.log(mostPopulatedCountries)
 //     { country: 'India', population: 1295210000 },
 //     { country: 'United States of America', population: 323947000 }
 // ]
+let mostPopulatedCountries = (arr, num) => {
+    let mostPopulated = arr.sort((a, b) => b.population - a.population).map(({ name, population }) => ({ country: name, population })).slice(0, num)
+    return mostPopulated
+}
+console.log(mostPopulatedCountries(countryData, 10))
 
 //4. *** Try to develop a program which calculate measure of central tendency of a sample(mean, median, mode) and measure of variability(range, variance, standard deviation).In addition to those measures find the min, max, count, percentile, and frequency distribution of the sample.You can create an object called statistics and create all the functions which do statistical calculations as method for the statistics object.Check the output below.
 

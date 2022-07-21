@@ -30,8 +30,12 @@ let aunionb = new Set(C)
 let D = a.filter((n) => B.has(n))
 // 3.Find a with b
 
+import countryData from "./countries.js";
 // LEVEL 3
 // 1.How many languages are there in the countries object file.
+let allLangs = countryData.map(({ languages }) => languages).flat()
+let allLangsSet = new Set(allLangs).size
+console.log(allLangsSet) //112
 
 // 2.*** Use the countries data to find the 10 most spoken languages:
 
@@ -58,3 +62,19 @@ let D = a.filter((n) => B.has(n))
 //     { French: 45 },
 //     { Arabic: 25 }
 // ]
+
+let mostSpokenLanguages = (arr, num) => {
+    let mostSpokenLanguage = arr.map(({ languages }) => languages).flat().reduce((acc, cur) => {
+        acc[cur] = acc[cur] + 1 || 1
+        return acc
+    }, {})
+    mostSpokenLanguage = Object.entries(mostSpokenLanguage).sort((a, b) => b[1] - a[1]).slice(0, num).map((val) => {
+        let key = val[0];
+        let value = val[1];
+        const obj = {}
+        obj[key] = value
+        return obj
+    })
+    return mostSpokenLanguage
+}
+console.log(mostSpokenLanguages(countryData, 5))

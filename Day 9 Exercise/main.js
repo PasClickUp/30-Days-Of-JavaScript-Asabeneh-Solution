@@ -101,7 +101,10 @@ let findIndexOfRussia = countries.findIndex((country) => country.toLowerCase() =
 let totalPriceofProductsByChaining = products.map(({ price }) => price).reduce((acc, cur) => typeof cur !== "number" ? acc : acc + cur, 0)
 console.log(totalPriceofProductsByChaining)
 //2. Find the sum of price of products using only reduce reduce(callback)).
-let sumPriceofPrice = products["price" === numbers]
+let sumPriceofPrice = products.reduce((acc, { product, price }) => {
+    if (typeof price === "number") acc = acc + price
+    return acc
+}, 0)
 console.log(sumPriceofPrice)
 //3. Declare a function called categorizeCountries which returns an array of countries which have some common pattern(you find the countries array in this repository as countries.js(eg 'land', 'ia', 'island', 'stan')).
 import countriees from './countries.js'
@@ -115,12 +118,39 @@ console.log(getFirstTenCountries)
 let getLastTenCountries = countriees.map((country) => country).reverse().slice(0, 10).reverse()
 console.log(getLastTenCountries)
 //7. Find out which letter is used many times as initial for a country name from the countries array(eg.Finland, Fiji, France etc)
+const mostInitials = countriees.reduce((acc, cur) => {
+    let firstLetter = cur[0]
+    if (acc[firstLetter]) acc[firstLetter] += 1
+    else acc[firstLetter] = 1
+    return acc
+}, {})
+let mostInitialLetter = Object.entries(mostInitials).sort((a, b) => b[1] - a[1])[0][0]
+console.log([mostInitialLetter])
 
 //LEVEL 3
 import countryData from './countries_data.js'
-
+let countryDataToUse = countryData
+// Name A to Z
+// array?.sort((a, b) => (a.name > b.name ? 1 : 1))
+// Name Z to A
+// array?.sort((a, b) => (a.name > b.name ? -1 : 1))
 //1. Use the countries information, in the data folder.Sort countries by name, by capital, by population
-
+let nameSort = countryDataToUse.sort((a, b) => {
+    if (a.name < b.name) return -1
+    if (a.name > b.name) return 1
+    return 0
+})
+let capitalSort = countryDataToUse.sort((a, b) => {
+    if (a.capital < b.capital) return -1
+    if (b.capital > a.capital) return 1
+    return 0
+})
+let populationSort = countryDataToUse.sort((a, b) => {
+    if (a.population < b.population) return -1
+    if (b.population > a.population) return 1
+    return 0
+})
+console.log(nameSort[0], capitalSort[0], populationSort[0])
 //2. *** Find the 10 most spoken languages:
 
 // Your output should look like this
@@ -146,8 +176,19 @@ import countryData from './countries_data.js'
 //     { country: 'Arabic', count: 25 },
 // ]
 
+let mostSpokenLanguages = (arr, num) => {
+    let spokenLanguage = arr.map(({ languages }) => languages).flat().reduce((acc, cur) => {
+        acc[cur] = acc[cur] + 1 || 1
+        return acc
+    }, {})
+    spokenLanguage = Object.entries(spokenLanguage).map(lang => ({ country: lang[0], count: lang[1] })).sort((a, b) => b.count - a.count)
+    return spokenLanguage.slice(0, num)
+}
+console.log(mostSpokenLanguages(countryData, 3))
 //3. *** Use countries_data.js file create a function which create the ten most populated countries
-
+console.log(countryData[100])
+let mostPopulatedCountries = countryData.map(({ population }) => population)
+console.log(mostPopulatedCountries)
 // console.log(mostPopulatedCountries(countries, 10))
 // [
 //     { country: 'China', population: 1377422166 },

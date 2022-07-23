@@ -129,7 +129,7 @@ console.log([mostInitialLetter])
 
 //LEVEL 3
 import countryData from './countries_data.js'
-let countryDataToUse = countryData
+let countryDataToUse = [...countryData]
 // Name A to Z
 // array?.sort((a, b) => (a.name > b.name ? 1 : 1))
 // Name Z to A

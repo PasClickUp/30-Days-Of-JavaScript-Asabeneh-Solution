@@ -47,5 +47,11 @@ fetch(countriesAPI)
 fetch(countriesAPI)
     .then(response => response.json())
     .then(data => {
-        console.log((data.map(({ languages }) => languages)))
+        const lang = (data.map(({ languages }) => languages)).flat().map(({ name }) => name)
+        console.log(lang.reduce((a, b) => {
+            if (a.indexOf(b) === -1) {
+                a.push(b)
+            }
+            return a
+        }, []).length)
     })

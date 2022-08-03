@@ -14,10 +14,10 @@ fetch(countriesAPI)
 
 // Level 2
 //1. Print out all the cat names in to catNames variable.
-let catNames = fetch(catsAPI)
+let catNames = await fetch(catsAPI)
     .then(response => response.json())
     .then(data => {
-        return data.map(({ name }) => name)
+        return data.map(({ name }) => name.toUpperCase())
     })
     .catch(error => console.error(error))
 console.log(catNames)

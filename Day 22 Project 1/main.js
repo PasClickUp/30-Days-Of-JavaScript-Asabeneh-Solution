@@ -1,6 +1,12 @@
+//Create a div container on HTML document and create 0 to 100 numbers dynamically and append to the container div.
+
+//Even numbers background is green
+//Odd numbers background is yellow
+//Prime numbers background is red
+
 let body = document.body
 
-body.style.fontFamily = 'grid'
+body.style.fontFamily = 'roboto'
 body.style.display = 'grid'
 body.style.placeItems = 'center'
 
@@ -16,7 +22,7 @@ body.append(numberDiv)
 
 header.textContent = 'Number Generator'
 challenge.textContent = '30DaysOfJavaScript:DOM Day 2'
-author.textContent = 'Author:Abdussomad Abdulqodir'
+author.textContent = 'Author: Abdussomad Abdulqodir'
 
 header.style.fontSize = '32px'
 header.style.fontWeight = '900'
@@ -50,10 +56,11 @@ for (let i = 0; i <= 101; i++) {
     noList.style.textAlign = 'center'
     noList.style.height = '80px'
     noList.style.lineHeight = '80px'
-    noList.style.margin = '0.2rem'
+    noList.style.margin = '0.15rem'
     noList.style.color = 'white'
     numberDiv.append(noList)
 }
+
 noList.style.paddingRight = '1rem'
 noList.style.paddingLeft = '1rem'
 

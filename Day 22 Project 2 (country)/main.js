@@ -42,10 +42,11 @@ for (let i = 0; i < countries.length; i++) {
     forCountry.style.fontSize = '15px'
     forCountry.style.fontSize = '10px'
     forCountry.style.fontWeight = '500'
+    forCountry.style.textAlign = 'center'
     forCountry.style.height = '80px'
     forCountry.style.lineHeight = '80px'
     forCountry.style.placeItems = 'center'
-    forCountry.style.border = '1px solid black'
+    forCountry.style.border = '1px solid grey'
     countriesDiv.append(forCountry)
 }
 

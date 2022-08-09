@@ -55,15 +55,16 @@ body.append(container)
 body.append(secondContainer)
 
 container.append(header)
-header.append(year)
+container.append(year)
 container.append(challenge)
 container.append(date)
 
 secondContainer.append(lists)
 secondContainer.append(author)
 secondContainer.append(icons)
-secondContainer.append(aboutSection)
+// secondContainer.append(aboutSection)
 secondContainer.append(aboutAuthor)
+secondContainer.append(authorContainer)
 secondContainer.append(skillSet)
 
 img1link.append(img1)
@@ -79,7 +80,7 @@ subsecondContainer.append(qualificationHead)
 skillSet.append(skillSetHead)
 skillSet.append(skillSetContainer)
 
-const generateColor = () => {
+let generateColor = () => {
 
     let str = '0123456789abcdef';
 
@@ -93,15 +94,15 @@ const generateColor = () => {
     return '#' + color
 }
 
-const dateFunction = () => {
+let dateFunction = () => {
 
-    const date = new Date()
-    const month = date.toLocaleString('default', { month: 'long' })
-    const day = date.getDate()
-    const year = date.getFullYear()
-    const hours = date.getHours() < 10 ? "0" + date.getHours() : date.getHours();
-    const minutes = date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes();
-    const seconds = date.getSeconds() < 10 ? "0" + date.getSeconds() : date.getSeconds();
+    let date = new Date()
+    let month = date.toLocaleString('default', { month: 'long' })
+    let day = date.getDate()
+    let year = date.getFullYear()
+    let hours = date.getHours() < 10 ? "0" + date.getHours() : date.getHours();
+    let minutes = date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes();
+    let seconds = date.getSeconds() < 10 ? "0" + date.getSeconds() : date.getSeconds();
     10 > hours ? '0' + hours : hours;
 
     return ` ${month} ${day}, ${year} ${hours}:${minutes}:${seconds}`
@@ -110,14 +111,14 @@ const dateFunction = () => {
 setInterval(() => {
     year.style.color = generateColor()
     date.style.background = generateColor()
-    date.textContent = dateFunction()
+    date.innerHTML = dateFunction()
 }, 1000);
 
 header.textContent = 'Abdussomad Abdulqodir Challenges in'
 year.textContent = '2022'
 challenge.textContent = '30DaysOfJavaScript Challenge'
 author.textContent = 'Abdussomad Abdulqodir Pa-aranti'
-aboutAuthor.textContent = 'I am an educator, developer, motivator and content creator. I am a life-long learner. If you like to know more about me checkout my LinkedIn or Github profile. Thank you so much for joining in my quest of changing everyone to developer.'
+aboutAuthor.textContent = 'I am an educator, developer, motivator and a Student of Knowledge. I am a life-long learner. If you like to know more about me checkout my LinkedIn or Github profile. Thank you so much for joining in my quest of changing everyone to developer.'
 
 titleHead.textContent = 'Titles'
 skillHead.textContent = 'Skills'
@@ -129,7 +130,7 @@ body.style.margin = 'auto'
 body.style.padding = '0'
 body.style.width = '100%'
 
-const challenges = [
+let challenges = [
     {
         name: '30 Days Of Python',
         topics: [
@@ -237,7 +238,7 @@ const challenges = [
     }
 ]
 
-const skills = [
+let skills = [
     '✅ Web Development',
     '✅ Data Analysis',
     '✅ Data Visualization',
@@ -246,7 +247,7 @@ const skills = [
     '✅ Developing API'
 ]
 
-const titles = [
+let titles = [
     '🌱 Educator',
     '💻 Programmer',
     '🌐 Developer',
@@ -254,7 +255,7 @@ const titles = [
     '📔 Content Creator'
 ]
 
-const qualifications = [
+let qualifications = [
     '📖 MSc. Computer Science Ongoing',
     '👮 BSc. Information and Communication Eng.',
     '👮 MSc. Food Technology',
@@ -262,7 +263,7 @@ const qualifications = [
 ]
 
 
-const keywords = [
+let keywords = [
     'HTML',
     'HTML5',
     'CSS',
@@ -300,21 +301,21 @@ const keywords = [
     'D3.js'
 ]
 
-for (const item of challenges) {
+for (let item of challenges) {
 
-    const listContainer = document.createElement('div')
-    const name = document.createElement('div')
-    const skill = document.createElement('details')
-    const status = document.createElement('div')
+    let listContainer = document.createElement('div')
+    let name = document.createElement('div')
+    let skill = document.createElement('details')
+    let status = document.createElement('div')
 
     name.textContent = item.name
     status.innerText = item.status
 
     item.topics.forEach((item, index) => {
-        const summary = document.createElement('summary')
+        let summary = document.createElement('summary')
         summary.innerText = item
         skill.append(summary)
-    });
+    })
 
     listContainer.append(name, skill, status)
     lists.append(listContainer)
@@ -322,7 +323,7 @@ for (const item of challenges) {
 
     listContainer.style.display = 'flex'
     listContainer.style.justifyContent = 'space-between'
-    listContainer.style.alignItems = 'center'
+    // listContainer.style.alignItems = 'center'
     listContainer.style.background = 'red'
     listContainer.style.padding = '20px'
     listContainer.style.marginBottom = '5px'
@@ -345,27 +346,29 @@ for (const item of challenges) {
     }
 }
 
-for (const title of titles) {
+for (let title of titles) {
 
-    const titleList = document.createElement('div')
+    let titleList = document.createElement('div')
     titleList.append(title)
     subContainer.append(titleList)
 }
 
-for (const skill of skills) {
-    const skillList = document.createElement('div')
+for (let skill of skills) {
+
+    let skillList = document.createElement('div')
     skillList.append(skill)
     subContainer1.append(skillList)
 }
 
-for (const item of qualifications) {
-    const itemList = document.createElement('div')
-    itemList.append(item)
-    subsecondContainer.append(itemList)
+for (let quality of qualifications) {
+
+    let qualityList = document.createElement('div')
+    qualityList.append(quality)
+    subsecondContainer.append(qualityList)
 }
 
-for (const keys of keywords) {
-    const key = document.createElement('div')
+for (let keys of keywords) {
+    let key = document.createElement('div')
     key.append('# ' + keys)
     skillSetContainer.append(key)
 
@@ -389,10 +392,10 @@ secondContainer.style.margin = '0 auto'
 secondContainer.style.width = '60%'
 secondContainer.style.fontSize = '1em'
 
-header.style.display = 'inline'
+// header.style.display = 'inline'
 header.style.fontSize = '22px'
 
-year.style.display = 'inline'
+// year.style.display = 'inline'
 year.style.fontSize = '64px'
 year.style.marginLeft = '4px'
 
@@ -408,9 +411,13 @@ lists.style.margin = '1rem 0'
 author.style.margin = '0 0 0.3em 0'
 author.style.textAlign = 'center'
 
-img1.style.height = '40px'
-img2.style.height = '40px'
-img3.style.height = '40px'
+img1.style.height = '35px'
+img2.style.height = '35px'
+img3.style.height = '35px'
+
+img1.style.borderRadius = '50%'
+img2.style.borderRadius = '50%'
+img3.style.borderRadius = '50%'
 
 img1.style.marginRight = '0.5em'
 img2.style.marginRight = '0.5em'

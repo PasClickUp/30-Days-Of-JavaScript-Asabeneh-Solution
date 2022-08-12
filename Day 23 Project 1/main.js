@@ -17,7 +17,6 @@ Generator.append(input, button)
 header.textContent = 'Number Generator'
 title.textContent = '30DaysOfJavaScript:DOM Day 3'
 author.textContent = 'Author: Abdussomad Abdulqodir'
-let num = input.value
 
 input.setAttribute('type', 'text')
 input.setAttribute('placeholder', 'Generate more numbers')
@@ -54,7 +53,6 @@ const numberGen = (num) => {
         numbers.append(theNumbers)
 
     }
-
 }
 
 numbers.style.display = 'grid'
@@ -81,14 +79,9 @@ button.style.fontSize = '20px'
 button.style.fontWeight = '600'
 button.style.border = 'none'
 button.addEventListener('click', () => {
-    console.log(Number(input.value))
     input.value == '' ? blurError.textContent = 'Enter number in the input field to generate numbers' : Number(input.value) != input.value ? blurError.textContent = 'input value must be a number' : blurError.textContent = " "
     numberGen(input.value)
 
     blurError.style.color = 'red'
 
 })
-// body.addEventListener('keypress', (e) => {
-//     console.log(e.keyCode)
-//     console.log(e.code)
-// })

@@ -23,3 +23,23 @@ button {
     background: #6c6b6c;
     color: white;
 }
+
+.initialPlanet {
+    background: #6c6b6c;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 50%;
+    width: 45rem;
+    height: 24rem;
+    margin-top: 1rem;
+}
+
+.earth {
+    object-fit: contain;
+    height: 18rem;
+}
+
+.information {
+    color: white;
+}

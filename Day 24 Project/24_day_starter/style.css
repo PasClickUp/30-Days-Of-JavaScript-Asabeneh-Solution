@@ -1,0 +1,25 @@
+body,
+html {
+    margin: 0;
+    padding: 0;
+    display: grid;
+    place-items: center;
+    background: url(./images/galaxy.gif);
+}
+
+h1 {
+    color: #eee6e8;
+}
+
+input,
+select,
+button {
+    padding: 0.3rem;
+    outline: none;
+    color: gray;
+}
+
+button {
+    background: #6c6b6c;
+    color: white;
+}

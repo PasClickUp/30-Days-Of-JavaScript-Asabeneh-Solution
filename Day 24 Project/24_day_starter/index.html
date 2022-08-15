@@ -2,38 +2,23 @@
 <html lang="en">
 
 <head>
-	<title>Solar System: Document Object Model:30 Days Of JavaScript</title>
-	<link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700&display=swap" rel="stylesheet">
+	<title>Asabeneh Day 24</title>
 </head>
 
 <body>
-	<header>
-		<h1>Calculate a weight of an object on a planet</h1>
-
-		<input type="text" id="mass" placeholder="Mass in Kilogram" />
-		<select>
-			<option value='none'>--select planet-- </option>
+	<h1>Calculaten the weight of an object on a planet</h1>
+	<div class="inputSelectButton">
+		<input type="text" placeholder="Mass in kilogram">
+		<select id="wholeselection">
+			<option value="top">--Select option--</option>
 		</select>
-		<button>Calculate weight</button>
-
-	</header>
-	<main>
-		<div class="flex-container">
-			<div class="flex-item image">
-				<img src='./images/earth.png' class="planet-image" />
-			</div>
-			<div class="flex-item description"></div>
-
-		</div>
-
-
-	</main>
-
-
-
-
-
-	<script src="./scripts/main.js"></script>
+		<button>Calculate Weight</button>
+	</div>
+	<div class="initialPlanet">
+		<img src="./images/earth.png" alt="" class="eath" srcset="">
+	</div>
+	<script src="./design/main.js"></script>
+	<link rel="stylesheet" href="style.css">
 </body>
 
 </html>

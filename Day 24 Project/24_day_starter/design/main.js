@@ -1,7 +1,7 @@
 let input = document.querySelector('input')
 let selector = document.querySelector('select')
 let button = document.querySelector('button')
-let imagecontainer = document.querySelector('.initialPlanet')
+let imageContainer = document.querySelector('.initialPlanet')
 let output = document.querySelector('.information')
 let textEl = document.querySelector('.text')
 

@@ -25,14 +25,14 @@ button {
 }
 
 .initialPlanet {
-    background: #6c6b6c;
+    background: rgba(255, 255, 255, 0.1);
     display: flex;
     justify-content: center;
     align-items: center;
-    opacity: 50%;
     width: 45rem;
-    height: 24rem;
+    /* height: 24rem; */
     margin-top: 1rem;
+    padding: 3rem;
 }
 
 .earth {

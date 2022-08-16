@@ -58,6 +58,8 @@ selector.innerHTML += planetsGravity.map(planets => `
 
 let value;
 let mass;
+let weight;
+
 selector.addEventListener('change', (e) => {
     value = e.target.value
 })
@@ -71,20 +73,54 @@ function result() {
         .setAttribute('src', `./images/${value}.png`)
     planetsGravity.map((p) => {
         if (p.planet == value) {
-            textEl.textContent = `The weight of the object on ${value} is ${mass * p.gravity}`
+            textEl.textContent = `The weight of the object on ${value.toUpperCase()}`
+            weight = document.createElement('span')
+            textEl.append(weight)
+            textEl.style.color = 'white'
+            textEl.style.background = 'rgba(255, 255, 255, 0.2)'
+            textEl.style.height = '10rem'
+            textEl.style.width = '25rem'
+            textEl.style.display = 'grid'
+            textEl.style.alignItems = 'center'
+            textEl.style.placeItems = 'center'
+            textEl.style.fontWeight = '800'
+            textEl.style.marginLeft = '2rem'
+            weight.textContent = `${(mass * p.gravity).toFixed(2)} N`
+            weight.style.background = 'rgba(255, 255, 255, 0.3)'
+            weight.style.borderRadius = '50%'
+            weight.style.padding = '2.5rem 1.5rem'
+            weight.style.fontWeight = '1000'
         }
     })
 
 }
+
 button.addEventListener('click', e => {
     if (!mass) {
-        textEl.textContent = "mass is required"
+        textEl.textContent = "Mass is required"
+        textEl.style.color = 'white'
+        textEl.style.background = 'rgba(255, 255, 255, 0.2)'
+        textEl.style.height = '3rem'
+        textEl.style.width = '25rem'
+        textEl.style.display = 'flex'
+        textEl.style.justifyContent = 'center'
+        textEl.style.alignItems = 'center'
+        textEl.style.fontWeight = '800'
         document.querySelector('img')
             .setAttribute('src', `./ images / ${" "}.png`)
         return
     }
+
     if (!value) {
-        textEl.textContent = "planet is required"
+        textEl.textContent = "You did not choose a planet yet"
+        textEl.style.color = 'white'
+        textEl.style.background = 'rgba(255, 255, 255, 0.2)'
+        textEl.style.height = '3rem'
+        textEl.style.width = '25rem'
+        textEl.style.display = 'flex'
+        textEl.style.justifyContent = 'center'
+        textEl.style.alignItems = 'center'
+        textEl.style.fontWeight = '800'
         document.querySelector('img')
             .setAttribute('src', `./ images / ${""}.png`)
         return

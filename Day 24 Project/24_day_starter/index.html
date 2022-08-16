@@ -8,19 +8,18 @@
 <body>
 	<h1>Calculate the weight of an object on a planet</h1>
 	<div class="inputSelectButton">
-		<input type="text" placeholder="Mass in kilogram">
+		<input type="text" onfocus="mass" placeholder="Mass in kilogram">
 		<select id="wholeselection">
 			<option value="top">--Select option--</option>
 		</select>
 		<button>Calculate Weight</button>
 	</div>
-	<div class="flex-container">
-		<div class="initialPlanet flex-item">
-			<img src="./images/earth.png" alt="" class="earth" srcset="">
-			<span class="text"></span>
-		</div>
-		<div class="flex-item information hide"></div>
+
+	<div class="initialPlanet">
+		<img src="./images/earth.png" alt="" class="earth" srcset="">
+		<span class="text"></span>
 	</div>
+
 	<script src="./design/main.js"></script>
 	<link rel="stylesheet" href="style.css">
 </body>

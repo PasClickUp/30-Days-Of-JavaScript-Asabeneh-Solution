@@ -1,8 +1,6 @@
 let input = document.querySelector('input')
 let selector = document.querySelector('select')
 let button = document.querySelector('button')
-let imageContainer = document.querySelector('.initialPlanet')
-let output = document.querySelector('.information')
 let textEl = document.querySelector('.text')
 
 const planetsGravity = [
@@ -48,11 +46,6 @@ const planetsGravity = [
     },
 ]
 
-let galaxies = planetsGravity.reduce((acc, cur) => {
-    acc[cur.planet] = cur.gravity
-    return acc
-}, {})
-
 selector.innerHTML += planetsGravity.map(planets => `
 <option value = '${planets.planet}'>${planets.planet.toUpperCase()}</option>`)
 
@@ -67,6 +60,8 @@ selector.addEventListener('change', (e) => {
 input.addEventListener('change', (e) => {
     mass = e.target.value
 })
+
+input.style.color = 'black'
 
 function result() {
     document.querySelector('img')

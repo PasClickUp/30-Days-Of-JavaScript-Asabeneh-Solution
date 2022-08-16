@@ -30,7 +30,6 @@ button {
     justify-content: center;
     align-items: center;
     width: 45rem;
-    /* height: 24rem; */
     margin-top: 1rem;
     padding: 3rem;
 }
@@ -38,8 +37,4 @@ button {
 .earth {
     object-fit: contain;
     height: 18rem;
-}
-
-.information {
-    color: white;
 }

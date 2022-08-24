@@ -1,0 +1,23 @@
+body {
+    display: grid;
+    place-items: center;
+    margin: 0%;
+    padding: 0%;
+}
+
+header {
+    display: grid;
+    place-items: center;
+}
+
+header .world {
+    font-weight: 400;
+    font-size: 250%;
+    color: #f9ae25;
+    /* letter-spacing: 2px; */
+}
+
+header .countries {
+    font-size: 100%;
+    color: #5e5e5f;
+}

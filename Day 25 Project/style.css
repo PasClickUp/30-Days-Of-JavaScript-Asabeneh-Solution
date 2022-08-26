@@ -1,23 +1,72 @@
-body {
-    display: grid;
-    place-items: center;
+body,
+html {
     margin: 0%;
     padding: 0%;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
-header {
-    display: grid;
-    place-items: center;
+#countries {
+    text-align: center;
+    background: #f0f0f0;
+    padding: 1rem;
 }
 
-header .world {
+h2 {
+    color: orange;
+    font-size: 3rem;
+    margin: 0.5rem;
     font-weight: 400;
-    font-size: 250%;
-    color: #f9ae25;
-    /* letter-spacing: 2px; */
 }
 
-header .countries {
-    font-size: 100%;
-    color: #5e5e5f;
+p {
+    display: inline;
+    font-weight: 400;
+    /* padding-bottom: 2rem; */
+}
+
+.wrapper {
+    display: grid;
+    box-shadow: 0px 0px 3px #d8d8d8;
+}
+
+h4 {
+    text-align: center;
+    margin: 0.5rem 0;
+    font-weight: 400;
+}
+
+button {
+    background-color: orange;
+    border: none;
+    outline: none;
+    padding: 0.5rem 1.5rem;
+    margin-right: 0.5rem;
+    border-radius: 2px;
+    text-transform: uppercase;
+}
+
+.graph-buttons {
+    text-align: center;
+    padding-top: 2rem
+}
+
+.graphs {
+    background: #f0f0f0;
+    padding: 2rem 0;
+    display: grid;
+    margin-top: 0;
+    box-shadow: 0px -1px 3px 0px #d6d4d4
+}
+
+.graph-wrapper {
+    margin: auto;
+    width: 70%;
+    display: grid;
+    grid-template-columns: 0.5fr 1fr 0.5fr;
+    grid-gap: 0.4rem;
+}
+
+.range {
+    height: 1.6rem;
+    background: orange;
 }

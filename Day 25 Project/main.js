@@ -22,7 +22,7 @@ const populationFunction = () => {
     graphWrapper.innerHTML = `
     <span>World</span>
     <span class = 'range'; style = 'width :100%'></span>
-    <span>${worldPopulation.toLocaleString()}
+    <span>${worldPopulation.toLocaleString()}</span>
     `
 
     sortingPopulation.forEach(country => {
@@ -46,7 +46,10 @@ const languageFunction = () => {
     }, {})).sort((a, b) => b[1] - a[1]).slice(0, 10)
 
     mostLanguagesSort.forEach(language => {
-        graphWrapper.innerHTML += `<span>${language[0]}</span><span class = 'range' style='width:${Number((language[1] * 100) / 100)}%; '></span><span>${language[1]}</span>`
+        graphWrapper.innerHTML += `
+        <span>${language[0]}</span>
+        <span class = 'range' style='width:${Number(language[1])}%'></span>
+        <span>${language[1]}</span>`
     })
     graphTitle.textContent = '10 Most Spoken languages in the world'
 }

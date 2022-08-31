@@ -1,3 +1,2 @@
-import countries from './countries.js'
-
-console.log(countries)
+let button = document.querySelectorAll('button')
+let span = document.querySelectorAll('span')

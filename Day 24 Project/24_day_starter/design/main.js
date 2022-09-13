@@ -124,3 +124,22 @@ button.addEventListener('click', e => {
     result()
 
 })
+
+let generateColor = () => {
+    let Alphanumeric = '0123456789abcdef'
+    let emptyStr = ''
+    let index
+    for (let i = 0; i < 6; i++) {
+        index = Math.floor(Math.random() * Alphanumeric.length)
+        index = Alphanumeric[index]
+        emptyStr = emptyStr + index
+    }
+    return '#' + emptyStr
+}
+
+let owner = document.querySelector('.owner')
+
+setInterval(() => {
+    owner.style.color = generateColor()
+
+}, 1000)

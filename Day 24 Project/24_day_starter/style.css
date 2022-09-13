@@ -38,3 +38,9 @@ button {
     object-fit: contain;
     height: 18rem;
 }
+
+.owner {
+    /* color: white; */
+    font-weight: 900;
+    font-size: 5rem;
+}
